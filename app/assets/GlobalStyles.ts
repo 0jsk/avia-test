@@ -1,12 +1,11 @@
-import { theme } from '@assets/theme';
 import { createGlobalStyle } from 'styled-components';
+import { theme } from "@app/assets";
 
 export const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
 
     margin: 0;
-    // eslint-disable-next-line no-tabs
     padding: 0;
 
     font-family: 'Open Sans', sans-serif;
@@ -39,7 +38,6 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  // eslint-disable-next-line no-tabs
   img {
     display: block;
   }
