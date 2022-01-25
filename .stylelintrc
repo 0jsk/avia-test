@@ -1,0 +1,5 @@
+{
+  "processors": ["stylelint-processor-styled-components"],
+  "extends": ["@zendeskgarden/stylelint-config"],
+  "customSyntax": "@stylelint/postcss-css-in-js"
+}

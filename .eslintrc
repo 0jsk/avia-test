@@ -1,0 +1,7 @@
+{
+  // TODO: add @zendeskgarden config
+  "extends": [
+    "next"
+  ],
+  "root": true
+}
