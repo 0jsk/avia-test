@@ -1,7 +1,15 @@
 {
-  // TODO: add @zendeskgarden config
   "extends": [
-    "next"
+    "next",
+    "@zendeskgarden",
+    "@zendeskgarden/eslint-config/plugins/react",
+    "@zendeskgarden/eslint-config/plugins/typescript"
   ],
-  "root": true
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "max-len": ["warn", 100]
+  }
 }

@@ -1,3 +1,3 @@
-import { theme } from '@assets/theme';
+import { theme } from './theme';
 
 export const space = (amount: number): Style => `${amount * theme.spacePx}px`;
