@@ -1,4 +1,5 @@
-import { Ticket } from '@app/modules/Ticket/types';
+import type { Ticket } from '@app/modules/Ticket';
+import { TicketC } from '@app/modules/Ticket';
 import { array } from 'io-ts';
 import { assert } from '@app/utils/io-ts';
 
@@ -14,6 +15,6 @@ export const fetchTickets = (interval?: Interval): Promise<Ticket[]> => {
     method: 'GET'
   })
     .then(res => res.json())
-    .then(array(Ticket).decode)
+    .then(array(TicketC).decode)
     .then(assert);
 };

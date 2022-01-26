@@ -2,7 +2,7 @@ import { array, literal, number, type, union } from 'io-ts';
 import type { TypeOf } from 'io-ts';
 import { uuid } from '@app/utils/io-ts';
 
-export const CityCodes = union([
+export const CityCodesC = union([
   literal('MOW'),
   literal('HKT'),
   literal('HKG'),
@@ -16,15 +16,15 @@ export const CityCodes = union([
   literal('EKV'),
   literal('EKT')
 ]);
-export type CityCodes = TypeOf<typeof CityCodes>;
+export type CityCodes = TypeOf<typeof CityCodesC>;
 
-export const Segment = type({
+export const SegmentC = type({
   id: uuid,
-  origin: CityCodes,
-  destination: CityCodes,
+  origin: CityCodesC,
+  destination: CityCodesC,
   dateStart: number,
   dateEnd: number,
-  stops: array(CityCodes),
+  stops: array(CityCodesC),
   duration: number
 });
-export type Segment = TypeOf<typeof Segment>;
+export type Segment = TypeOf<typeof SegmentC>;
