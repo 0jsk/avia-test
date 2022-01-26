@@ -24,7 +24,7 @@ export const Segment = type({
   destination: CityCodes,
   dateStart: number,
   dateEnd: number,
-  steps: array(CityCodes),
+  stops: array(CityCodes),
   duration: number
 });
 export type Segment = TypeOf<typeof Segment>;
