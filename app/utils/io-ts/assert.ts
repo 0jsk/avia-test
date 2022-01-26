@@ -7,5 +7,5 @@ export const assert = <E extends Errors, A>(either: Either<E, A>) => {
 
   // eslint-disable-next-line no-console
   console.trace({ failedAssertion: either.left });
-  throw new Error(`Assertion failed: ${either.left}`);
+  throw new Error(`Assertion failed: ${either.left}`); // TODO: make format fn for errors
 };
