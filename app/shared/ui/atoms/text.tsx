@@ -7,7 +7,7 @@ import { theme } from '@app/assets';
 type Props = {
   type?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
   className?: string;
-  color?: string & DefaultTheme['color']['text'];
+  color?: keyof DefaultTheme['color']['text'];
   title?: string;
 };
 
@@ -15,7 +15,7 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'] 
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
-  color: ${props => theme.color.text?.[props.color] ?? theme.color.text.primary}
+  color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)}
 
   &[data-type='p'] {
     font-size: 13px;
