@@ -6,6 +6,7 @@ export const theme: DefaultTheme = {
     secondary: '#f1fcff',
     text: {
       primary: '#4a4a4a',
+      accent: '#2196f3',
       secondary: '#a0b0b9',
       inverse: '#fff'
     }

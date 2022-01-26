@@ -7,6 +7,7 @@ declare module 'styled-components' {
       secondary: string;
       text: {
         primary: string;
+        accent: string;
         secondary: string;
         inverse: string;
       };

@@ -17,13 +17,13 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'] 
   font-weight: normal;
   color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)}
 
-  &[data-type='p'] {
-    font-size: 13px;
+  &[data-type='span'] {
+    font-size: 12px;
     line-height: 20px;
   }
 
-  &[data-type='span'] {
-    font-size: 12px;
+  &[data-type='p'] {
+    font-size: 13px;
     line-height: 20px;
   }
 
@@ -50,11 +50,13 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'] 
   &[data-type='h5'] {
     font-size: 18px;
     font-weight: 600;
+    line-height: 20px;
   }
 
   &[data-type='h6'] {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 20px;
   }
 `;
 
