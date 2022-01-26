@@ -21,7 +21,8 @@
     "baseUrl": ".",
     "paths": {
 			"@pages/*": ["./pages/*"],
-			"@app/*": ["./app/*"]
+			"@app/*": ["./app/*"],
+      "@/*": ["./*"]
 		}
 	},
   "include": [
