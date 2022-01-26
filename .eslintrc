@@ -11,6 +11,7 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/naming-convention": "off",
+    "@typescript-eslint/no-redeclare": "off",
     "max-len": ["warn", 100]
   }
 }
