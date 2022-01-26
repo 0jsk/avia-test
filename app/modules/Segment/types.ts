@@ -1,6 +1,6 @@
 import { array, literal, number, type, union } from 'io-ts';
 import type { TypeOf } from 'io-ts';
-import { uuid } from '@app/utils/io-ts/extended-types';
+import { uuid } from '@app/utils/io-ts';
 
 export const CityCodes = union([
   literal('MOW'),
