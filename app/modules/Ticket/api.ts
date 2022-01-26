@@ -1,7 +1,7 @@
 import type { Ticket } from '@app/modules/Ticket';
 import { TicketC } from '@app/modules/Ticket';
 import { array } from 'io-ts';
-import { assert } from '@app/utils/io-ts';
+import { assert } from '@app/shared/lib/io-ts';
 
 interface Interval {
   start: number;

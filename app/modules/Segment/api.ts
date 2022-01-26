@@ -1,7 +1,7 @@
 import type { Segment } from '@app/modules/Segment';
 import { SegmentC } from '@app/modules/Segment';
 import { array } from 'io-ts';
-import { assert } from '@app/utils/io-ts';
+import { assert } from '@app/shared/lib/io-ts';
 
 export const fetchSegments = (): Promise<Segment[]> => fetch(
   '/api/segments',

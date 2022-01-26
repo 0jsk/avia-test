@@ -1,6 +1,6 @@
 import { array, number, string, type } from 'io-ts';
 import type { TypeOf } from 'io-ts';
-import { uuid } from '@app/utils/io-ts';
+import { uuid } from '@app/shared/lib/io-ts';
 
 export const TicketC = type({
   id: uuid,
