@@ -16,7 +16,6 @@ export const GlobalStyles = createGlobalStyle`
 
     display: flex;
 
-    color: ${theme.color.text.primary};
     background: ${theme.color.secondary};
   }
 

@@ -8,22 +8,32 @@ type Props = {
   type?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
   className?: string;
   color?: keyof DefaultTheme['color']['text'];
+  bold?: boolean;
   title?: string;
 };
 
-const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'] }>`
+export const Text: FC<Props> = ({ children, type, className, color, bold, title, ...props }) => (
+  <TextStyled
+    data-type={type} as={type}
+    className={className} color={color} bold={bold} title={title} {...props}
+  >
+    {children}
+  </TextStyled>
+);
+
+const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color']; bold?: boolean }>`
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: ${props => (props.bold ? '600' : 'normal')};
   color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)}
-
-  &[data-type='span'] {
-    font-size: 12px;
-    line-height: 20px;
-  }
 
   &[data-type='p'] {
     font-size: 13px;
+    line-height: 20px;
+  }
+
+  &[data-type='span'] {
+    font-size: 12px;
     line-height: 20px;
   }
 
@@ -59,9 +69,3 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'] 
     line-height: 20px;
   }
 `;
-
-export const Text: FC<Props> = ({ children, type, className, color, title }) => (
-  <TextStyled data-type={type} as={type} className={className} color={color} title={title}>
-    {children}
-  </TextStyled>
-);

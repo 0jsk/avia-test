@@ -15,5 +15,5 @@ export const theme: DefaultTheme = {
     primary: '12px',
     large: '24px'
   },
-  spacePx: 4
+  spacePx: 10
 };
