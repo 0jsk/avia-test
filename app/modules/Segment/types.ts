@@ -1,5 +1,5 @@
 import { DateFromNumber, uuid } from '@app/shared/lib/io-ts';
-import { array, literal, number, type, union } from 'io-ts';
+import { array, literal, type, union } from 'io-ts';
 import type { TypeOf } from 'io-ts';
 
 export const CityCodesC = union([
@@ -25,6 +25,6 @@ export const SegmentC = type({
   dateStart: DateFromNumber,
   dateEnd: DateFromNumber,
   stops: array(CityCodesC),
-  duration: number
+  duration: DateFromNumber
 });
 export type Segment = TypeOf<typeof SegmentC>;
