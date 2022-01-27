@@ -7,6 +7,6 @@ type Props = {
 
 export const Price = ({ amount }: Props) => (
   <Text type="h3" color="accent">
-    {amount} &#8381;
+    {amount} Р
   </Text>
 );
