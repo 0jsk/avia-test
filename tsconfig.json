@@ -20,11 +20,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-			"@pages/*": ["./pages/*"],
-			"@app/*": ["./app/*"],
+      "@pages/*": ["./pages/*"],
+      "@app/*": ["./app/*"],
       "@/*": ["./*"]
-		}
-	},
+    }
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
