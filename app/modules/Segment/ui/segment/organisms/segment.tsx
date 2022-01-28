@@ -11,27 +11,27 @@ type Props = {
 export const Segment = ({ segment }: Props) => (
   <Container>
     <Stack>
-      <Text type="span" color="secondary">
-        {segment.origin} - {segment.destination}
-      </Text>
+      <UppercaseText type="span" color="secondary" bold>
+        {segment.origin}&nbsp;&ndash;&nbsp;{segment.destination}
+      </UppercaseText>
       <Text type="p" bold>
         {formatDate('HH:mm', segment.dateStart)}
-        -
+        &nbsp;&ndash;&nbsp;
         {formatDate('HH:mm', segment.dateEnd)}
       </Text>
     </Stack>
     <Stack>
-      <Text type="span" color="secondary">
+      <UppercaseText type="span" color="secondary" bold>
         В пути
-      </Text>
+      </UppercaseText>
       <Text type="p" bold>
         {formatDate('HH mm', segment.duration)}
       </Text>
     </Stack>
     <Stack>
-      <Text type="span" color="secondary">
-        {segment.stops.length} Пересадки
-      </Text>
+      <UppercaseText type="span" color="secondary" bold>
+        {segment.stops.length > 0 ? `${segment.stops.length} Пересадки` : 'Без пересадок'}
+      </UppercaseText>
       <Text type="p" bold>
         {segment.stops.join(', ')}
       </Text>
@@ -41,6 +41,10 @@ export const Segment = ({ segment }: Props) => (
 
 // Layout
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
+const UppercaseText = styled(Text)`
+  text-transform: uppercase;
 `;

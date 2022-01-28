@@ -14,8 +14,13 @@ type Props = {
 
 export const Text: FC<Props> = ({ children, type, className, color, bold, title, ...props }) => (
   <TextStyled
-    data-type={type} as={type}
-    className={className} color={color} bold={bold} title={title} {...props}
+    data-type={type}
+    as={type}
+    className={className}
+    color={color}
+    bold={bold}
+    title={title}
+    {...props}
   >
     {children}
   </TextStyled>

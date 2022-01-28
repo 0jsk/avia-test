@@ -13,6 +13,9 @@
     "@typescript-eslint/naming-convention": "off",
     "@typescript-eslint/no-redeclare": "off",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-extra-parens": "off",
+    "@typescript-eslint/indent": "off",
+    "object-property-newline": "off",
     "max-len": ["warn", 100]
   }
 }

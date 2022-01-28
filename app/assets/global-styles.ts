@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { theme } from '@app/assets/theme';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -16,19 +15,14 @@ export const GlobalStyles = createGlobalStyle`
 
     display: flex;
 
-    background: ${theme.color.secondary};
+    background: #f3f7fa;
   }
 
-  #root {
+  #__next {
     width: 100%;
     min-height: 100vh;
 
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    line-height: 1.4;
   }
 
   ul {

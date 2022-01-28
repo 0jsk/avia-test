@@ -13,10 +13,10 @@ export const Ticket = ({ ticket }: Props) => (
   <Container>
     <Header>
       <Price amount={13400} />
-      <Image src="/s7.png" width={110} height={36} alt="Company logo" />
+      <Image src={`/${ticket.company.logo}`} width={110} height={36} alt="Company logo" />
     </Header>
     <SegmentsList>
-      <Segment segment={ticket.segments[0]} />
+      {ticket.segments.map(segment => <Segment key={segment.id} segment={segment} />)}
     </SegmentsList>
   </Container>
 );
@@ -27,7 +27,7 @@ const Container = styled.div`
   flex-direction: column;
 
   background-color: #fff;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
 
   padding: ${theme.spacePx * 2}px;
   border-radius: 5px;
@@ -37,14 +37,11 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
 
-  margin-bottom: ${theme.spacePx}px;
+  margin-bottom: ${theme.spacePx * 2}px;
 `;
 
 const SegmentsList = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  :not(:last-child) {
-    margin-bottom: ${theme.spacePx}px;
-  }
+  display: grid;
+  grid-auto-rows: auto;
+  row-gap: ${theme.spacePx}px;
 `;
