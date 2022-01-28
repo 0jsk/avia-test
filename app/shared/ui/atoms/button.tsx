@@ -94,6 +94,9 @@ export const ButtonGroup = styled.div`
   & ${ButtonStyled} {
     border-radius: 0;
 
+    border: 1px solid #dfe5ec;
+    border-right: none;
+
     &:first-child {
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
@@ -102,6 +105,19 @@ export const ButtonGroup = styled.div`
     &:last-child {
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
+      border-right: 1px solid #dfe5ec;
+    }
+
+    &[data-accented='true'] {
+      border: 1px solid ${theme.color.primary};
+    }
+
+    &[data-accented='true'] + & {
+      border-left: none;
+    }
+
+    & + &[data-accented='true'] {
+      border-right: none;
     }
   }
 `;
