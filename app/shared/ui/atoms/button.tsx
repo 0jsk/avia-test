@@ -1,6 +1,5 @@
 import type { ButtonHTMLAttributes, FC } from 'react';
 import styled, { css } from 'styled-components';
-import { Text } from './text';
 import { theme } from '@app/assets';
 
 type ButtonTheme = 'primary' | 'secondary';
@@ -11,13 +10,13 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-shadow
-export const Button: FC<Props> = ({ children, theme, accented, ...props }) => (
+export const Button: FC<Props> = ({ children, theme = 'primary', accented, ...props }) => (
   <ButtonStyled
     data-theme={theme}
     data-accented={accented}
     {...props}
   >
-    <Text type="span" bold>{children}</Text>
+    {children}
   </ButtonStyled>
 );
 
@@ -46,7 +45,7 @@ const ButtonStyled = styled.button<{
   --text-color: ${theme.color.text.inverse};
   --size: 50px;
 
-  ${Themes}
+  ${Themes};
 
   display: flex;
   align-items: center;
@@ -54,13 +53,18 @@ const ButtonStyled = styled.button<{
 
   background-color: var(--base-color);
   color: var(--text-color);
-  letter-spacing: .5px;
   border-radius: 5px;
   height: var(--size);
   width: 100%;
 
   transition: .25s;
   text-transform: uppercase;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  line-height: 20px;
 
   &:hover {
     cursor: pointer;
@@ -72,13 +76,22 @@ const ButtonStyled = styled.button<{
   }
 
   &[data-accented='true'] {
-    --base-color: var(${theme.color.primary});
-    --text-color: var(${theme.color.text.inverse});
+    --base-color: ${theme.color.primary};
+    --text-color: ${theme.color.text.inverse};
+
+    &:hover {
+      cursor: pointer;
+      opacity: .7;
+
+      background-color: var(--base-color);
+    }
   }
 `;
 
 export const ButtonGroup = styled.div`
   & ${ButtonStyled} {
+    display: flex;
+
     border-radius: 0;
 
     &:first-child {

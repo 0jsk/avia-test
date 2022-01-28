@@ -25,47 +25,47 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'];
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: ${props => (props.bold ? '600' : 'normal')};
-  color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)}
+  color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)};
 
   &[data-type='p'] {
     font-size: 13px;
     line-height: 20px;
-  }
+  };
 
   &[data-type='span'] {
     font-size: 12px;
     line-height: 20px;
-  }
+  };
 
   &[data-type='h1'] {
     font-size: 32px;
     font-weight: 600;
-  }
+  };
 
   &[data-type='h2'] {
     font-size: 28px;
     font-weight: 600;
-  }
+  };
 
   &[data-type='h3'] {
     font-size: 24px;
     font-weight: 600;
-  }
+  };
 
   &[data-type='h4'] {
     font-size: 20px;
     font-weight: 600;
-  }
+  };
 
   &[data-type='h5'] {
     font-size: 18px;
     font-weight: 600;
     line-height: 20px;
-  }
+  };
 
   &[data-type='h6'] {
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
-  }
+  };
 `;
