@@ -89,9 +89,9 @@ const ButtonStyled = styled.button<{
 `;
 
 export const ButtonGroup = styled.div`
-  & ${ButtonStyled} {
-    display: flex;
+  display: flex;
 
+  & ${ButtonStyled} {
     border-radius: 0;
 
     &:first-child {
