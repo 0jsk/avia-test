@@ -14,12 +14,14 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
 
     display: flex;
+    justify-content: center;
 
     background: #f3f7fa;
   }
 
   #__next {
     width: 100%;
+    max-width: 754px;
     min-height: 100vh;
 
     position: relative;

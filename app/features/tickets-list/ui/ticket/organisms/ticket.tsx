@@ -1,7 +1,7 @@
 import type { Ticket as ITicket } from '@app/modules/Ticket';
 import Image from 'next/image';
-import { Price } from '@app/modules/Ticket/ui/ticket';
-import { Segment } from '@app/modules/Segment/ui/segment';
+import { Price } from '@app/features/tickets-list/ui/ticket';
+import { Segment } from '@app/features/tickets-list/ui/ticket/organisms/ticket';
 import styled from 'styled-components';
 import { theme } from '@app/assets';
 
@@ -12,7 +12,7 @@ type Props = {
 export const Ticket = ({ ticket }: Props) => (
   <Container>
     <Header>
-      <Price amount={13400} />
+      <Price amount={ticket.price} />
       <Image src={`/${ticket.company.logo}`} width={110} height={36} alt="Company logo" />
     </Header>
     <SegmentsList>
