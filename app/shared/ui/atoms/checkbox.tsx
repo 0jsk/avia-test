@@ -11,25 +11,6 @@ export const Checkbox: FC<Props> = ({ children, checked, style, className, ...pr
   </Container>
 );
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-`;
-
-const StyledText = styled.span`
-  font-family: 'Open Sans', sans-serif;
-  font-size: 13px;
-  font-weight: normal;
-  line-height: 20px;
-
-  user-select: none;
-`;
-
 const Container = styled.label<{ 'data-checked': boolean }>`
   display: flex;
   align-items: center;
@@ -52,3 +33,23 @@ const Container = styled.label<{ 'data-checked': boolean }>`
     border-color: ${theme.color.primary};
   }
 `;
+
+const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+`;
+
+const StyledText = styled.span`
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 20px;
+
+  user-select: none;
+`;
+

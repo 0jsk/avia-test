@@ -43,7 +43,6 @@ const ButtonStyled = styled.button<{
 }>`
   --base-color: ${theme.color.primary};
   --text-color: ${theme.color.text.inverse};
-  --size: 50px;
 
   ${Themes};
 
@@ -54,7 +53,7 @@ const ButtonStyled = styled.button<{
   background-color: var(--base-color);
   color: var(--text-color);
   border-radius: 5px;
-  height: var(--size);
+  height: 50px;
   width: 100%;
 
   transition: .25s;
