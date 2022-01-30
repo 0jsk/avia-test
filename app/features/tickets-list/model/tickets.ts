@@ -1,13 +1,15 @@
 import {
-  $popularityFilter,
+  $popularitySort,
   sortTickets
 } from '@app/features/tickets-list/model/popularity-sort';
+import type { CompanyFilter } from '@app/features/tickets-list/model/companies-filter';
 import {
   $companyFilter,
   filterTicketsByCompany
 } from '@app/features/tickets-list/model/companies-filter';
+import type { StopFilter } from '@app/features/tickets-list/model/stop-filter';
 import { $stopsFilter, filterTicketsByStop } from '@app/features/tickets-list/model/stop-filter';
-import { createEvent, forward, merge, restore, sample } from 'effector';
+import { combine, createEvent, merge, restore, sample } from 'effector';
 import { $tickets } from '@app/modules/Ticket/model';
 import type { Ticket } from '@app/modules/Ticket';
 
@@ -15,13 +17,18 @@ const setFilteredTickets = createEvent<Ticket[]>();
 
 export const $filteredTickets = restore(setFilteredTickets, []);
 
+const filterTickets = (stops: StopFilter[], company: CompanyFilter, tickets: Ticket[]) =>
+  filterTicketsByCompany(company, filterTicketsByStop(stops, tickets));
+
 sample({
-  source: $tickets,
+  clock: $tickets,
+  source: combine({ stops: $stopsFilter, company: $companyFilter }),
+  fn: ({ stops, company }, tickets) => filterTickets(stops, company, tickets),
   target: setFilteredTickets
 });
 
 sample({
-  clock: $popularityFilter,
+  clock: $popularitySort,
   source: $filteredTickets,
   fn: (tickets, type) => sortTickets(type, tickets),
   target: setFilteredTickets
@@ -34,15 +41,8 @@ sample({
 });
 
 sample({
-  clock: $companyFilter,
+  clock: combine({ stops: $stopsFilter, company: $companyFilter }),
   source: $filteredTickets,
-  fn: (tickets, type) => filterTicketsByCompany(type, tickets),
-  target: setFilteredTickets
-});
-
-sample({
-  clock: $stopsFilter,
-  source: $filteredTickets,
-  fn: (tickets, types) => filterTicketsByStop(types, tickets),
+  fn: (tickets, { stops, company }) => filterTickets(stops, company, tickets),
   target: setFilteredTickets
 });

@@ -1,5 +1,5 @@
 import {
-  $popularityFilter,
+  $popularitySort,
   PopularitySort as PopularityFilterEnum,
   setPopularitySortType
 } from '@app/features/tickets-list/model';
@@ -8,7 +8,7 @@ import { useEvent, useStore } from 'effector-react/scope';
 import styled from 'styled-components';
 
 export const PopularityFilter = () => {
-  const selectedFilter = useStore($popularityFilter);
+  const selectedFilter = useStore($popularitySort);
   const changeFilter = useEvent(setPopularitySortType);
 
   return (

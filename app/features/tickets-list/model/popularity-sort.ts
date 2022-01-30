@@ -9,7 +9,7 @@ export enum PopularitySort {
 }
 
 export const setPopularitySortType = createEvent<PopularitySort>();
-export const $popularityFilter = restore(setPopularitySortType, null);
+export const $popularitySort = restore(setPopularitySortType, null);
 
 export const sortTickets = (type: PopularitySort, tickets: Ticket[]): Ticket[] => {
   switch (type) {

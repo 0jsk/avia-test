@@ -12,6 +12,7 @@ export const fetchTicketsFx = createEffect<(interval?: Interval) => Promise<Tick
   interval => fetchTickets(interval));
 
 export const setTickets = createEvent<Ticket[]>();
+
 export const $tickets = restore(setTickets, []);
 
 sample({

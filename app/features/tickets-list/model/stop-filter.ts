@@ -29,9 +29,15 @@ const setStopsFilters = createEvent<StopFilter[]>();
 export const selectFilter = createEvent<StopFilter>();
 
 export const $stopsFilter = restore(setStopsFilters, [])
-  .on(selectFilter, (selectedFilters, payload) => (
-    selectedFilters.includes(payload) ? selectedFilters.filter(f => f !== payload) : [...selectedFilters, payload])
-  );
+  .on(selectFilter, (selectedFilters, payload) => {
+    if (payload === StopFilter.ALL) {
+      return Object.values(StopFilter);
+    }
+
+    const selectedFiltersWithoutAll = selectedFilters.filter(f => f !== StopFilter.ALL);
+
+    return selectedFiltersWithoutAll.includes(payload) ? selectedFiltersWithoutAll.filter(f => f !== payload) : [...selectedFiltersWithoutAll, payload];
+  });
 
 export const filterTicketsByStop = (types: StopFilter[], tickets: Ticket[]) => {
   if (types.includes(StopFilter.ALL) || types.length === 0) {

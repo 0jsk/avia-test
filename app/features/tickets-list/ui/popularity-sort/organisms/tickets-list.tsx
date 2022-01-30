@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { theme } from '@app/assets';
 import { useList } from 'effector-react';
 import { Button } from '@app/shared/ui';
-import { fetchTicketsFx } from '@app/modules/Ticket/model';
+import { $tickets, fetchTicketsFx } from '@app/modules/Ticket/model';
 import { useEvent } from 'effector-react/ssr';
 import { useStore } from 'effector-react/scope';
 
@@ -15,7 +15,7 @@ export const TicketsList = () => {
     </StyledListItem>
   ));
 
-  const { length } = useStore($filteredTickets);
+  const { length } = useStore($tickets);
   const loadMoreTickets = useEvent(fetchTicketsFx);
 
   return (
