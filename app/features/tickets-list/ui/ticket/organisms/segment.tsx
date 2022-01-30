@@ -1,5 +1,5 @@
 import type { Segment as ISegment } from '@app/modules/Segment';
-import { Stack } from '../molecules';
+import { Stack } from '@app/features/tickets-list/ui';
 import { Text } from '@app/shared/ui';
 import { formatDate } from '@app/shared/lib/format-date';
 import styled from 'styled-components';

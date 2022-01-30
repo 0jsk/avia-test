@@ -1,7 +1,6 @@
+import { Price, Segment } from '@app/features/tickets-list/ui';
 import type { Ticket as ITicket } from '@app/modules/Ticket';
 import Image from 'next/image';
-import { Price } from '@app/features/tickets-list/ui/ticket';
-import { Segment } from '@app/features/tickets-list/ui/ticket/organisms/ticket';
 import styled from 'styled-components';
 import { theme } from '@app/assets';
 

@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  html {
+    overflow-y: scroll;
+  }
+
   html,
   body {
     width: 100%;

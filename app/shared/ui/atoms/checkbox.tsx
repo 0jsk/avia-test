@@ -30,11 +30,10 @@ const Container = styled.label<{ 'data-checked': boolean; 'data-type': 'radio' |
     margin-right: ${theme.spacePx}px;
 
     border: 1px solid #9abbce;
-    transition: .25s;
   }
 
   &[data-type='false']:before {
-    background: transparent;
+    background: none;
   }
 
   &[data-type='radio']:before {
@@ -45,11 +44,11 @@ const Container = styled.label<{ 'data-checked': boolean; 'data-type': 'radio' |
     border-color: ${theme.color.primary};
   }
 
-  &[data-type='checkbox']:before {
+  &[data-type='checkbox'][data-checked='true']:before {
     background: url("/icons/check.svg") center/12px no-repeat;
   }
 
-  &[data-type='radio']:before {
+  &[data-type='radio'][data-checked='true']:before {
     background: url("/icons/select-circle.svg") center/12px no-repeat;
   }
 `;
