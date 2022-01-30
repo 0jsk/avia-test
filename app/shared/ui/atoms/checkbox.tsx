@@ -2,16 +2,18 @@ import type { FC, InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { theme } from '@app/assets';
 
-type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'>;
+type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> & {
+  type?: 'radio' | 'checkbox';
+};
 
-export const Checkbox: FC<Props> = ({ children, checked, style, className, ...props }) => (
-  <Container data-checked={checked} className={className} style={style}>
+export const Checkbox: FC<Props> = ({ children, type = 'checkbox', checked, style, className, ...props }) => (
+  <Container data-checked={checked} data-type={type} className={className} style={style}>
     <HiddenCheckbox checked={checked} {...props} />
     <StyledText>{children}</StyledText>
   </Container>
 );
 
-const Container = styled.label<{ 'data-checked': boolean }>`
+const Container = styled.label<{ 'data-checked': boolean; 'data-type': 'radio' | 'checkbox' }>`
   display: flex;
   align-items: center;
 
@@ -19,18 +21,36 @@ const Container = styled.label<{ 'data-checked': boolean }>`
 
   &:before {
     content: "";
+
     display: inline-block;
     vertical-align: middle;
+
     width: 20px;
     height: 20px;
-    border: 1px solid #9abbce;
-    border-radius: 2px;
     margin-right: ${theme.spacePx}px;
+
+    border: 1px solid #9abbce;
+    transition: .25s;
+  }
+
+  &[data-type='false']:before {
+    background: transparent;
+  }
+
+  &[data-type='radio']:before {
+    border-radius: 50%;
   }
 
   &[data-checked='true']:before {
-    background: url("/icons/check.svg") center/12px no-repeat;
     border-color: ${theme.color.primary};
+  }
+
+  &[data-type='checkbox']:before {
+    background: url("/icons/check.svg") center/12px no-repeat;
+  }
+
+  &[data-type='radio']:before {
+    background: url("/icons/select-circle.svg") center/12px no-repeat;
   }
 `;
 

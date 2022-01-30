@@ -33,13 +33,14 @@ const TextStyled = styled.p<{ 'data-type': Props['type']; color: Props['color'];
   color: ${props => (props.color ? theme.color.text[props.color] : theme.color.text.primary)};
 
   &[data-type='p'] {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
   };
 
   &[data-type='span'] {
     font-size: 12px;
     line-height: 20px;
+    letter-spacing: .5px;
   };
 
   &[data-type='h1'] {
